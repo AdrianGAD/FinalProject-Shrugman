@@ -58,7 +58,6 @@ while (game.isGameOn()) {
             console.log(colors.rainbow(`\n${game.showShrugman()}\n`));
         } else {
             console.clear();
-            // console.log(colors.bold.white(`\n${game.getFormattedStats()}\n`));
             console.log(colors.bold.white('👋 Bye and see you next round.'));
         }
     }
