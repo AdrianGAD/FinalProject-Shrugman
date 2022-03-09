@@ -6,9 +6,9 @@ const game = new Shrugman();
 
 // Cleanup screen and display word
 console.clear();
-let name = prompt(colors.rainbow('Enter your name: '));
+let name = prompt(colors.rainbow('Enter your name:'));
 console.log(colors.rainbow('Hello:'), colors.bgBlue(name));
-let gameStart = prompt( colors.green('Do you want to start the game? (y/n) '));
+let gameStart = prompt( colors.green('Do you want to start the game? (y/n)'));
 
         if (gameStart === 'y') {
             console.clear();
@@ -19,19 +19,19 @@ let gameStart = prompt( colors.green('Do you want to start the game? (y/n) '));
         }
 
 // Select category
-let category = prompt(colors.blue('Choose one category: movies 🎥, books 📕 '));
+let category = prompt(colors.blue('Choose one category: movies 🎥, books 📕'));
 while (!game.setCategory(category)) {
-    category = prompt('Choose category: movies or books ');
+    category = prompt('Choose category: movies or books');
 }
 
 console.clear();
 console.log(colors.green(`\n${game.showWord()}\n`));
 console.log(colors.rainbow(`\n${game.showShrugman()}\n`));
 while (game.isGameOn()) {
-    let guess = prompt(colors.bold.white('Guess a letter '));
+    let guess = prompt(colors.bold.white('Guess a letter'));
 
     while (!game.validateGuess(guess)) {
-        guess = prompt(colors.bold.white('Guess a letter '));
+        guess = prompt(colors.bold.white('Guess a letter'));
     }
 
     game.update(guess);
@@ -49,7 +49,7 @@ while (game.isGameOn()) {
             console.log(colors.green('🍀 Maybe next time: ', colors.bold.white(game.currentWord)));
         }
 
-        let anotherRound = prompt('Another round (y/n)? ');
+        let anotherRound = prompt('Another round (y/n)?');
 
         if (anotherRound === 'y') {
             game.reset()

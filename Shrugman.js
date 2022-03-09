@@ -26,8 +26,8 @@ class Shrugman {
         this.currentWord = this.getSecretWord(this.category);
     }
 
-    // Use this function to set category
-    // return true if category was set successfully
+   // Set a category
+    
     setCategory(category) {
         if (!this.options.hasOwnProperty(category)) {
             return false;
@@ -43,8 +43,6 @@ class Shrugman {
         let randomIndex = Math.floor(Math.random() * this.options[category].length);
         let secretWord = this.options[category][randomIndex];
 
-        // They have played all words in this category
-        // Easiest is to reset the list of played words
         if (this.playedWords[this.category] === this.options[this.category]) {
             this.playedWords[this.category] = [];
         }
@@ -72,11 +70,11 @@ class Shrugman {
         return !this.knownLettersList.includes(letter.toLowerCase());
     }
 
-    // Update game and render screens
+    // Update game 
     update(letter) {
         this.knownLettersList.push(letter.toLowerCase());
 
-        // Lower only if the letter is not included in the word
+        // LowerCase only if the letter is not included in the word
         if (!this.currentWord.toLowerCase().includes(letter)) {
             this.attempts--;
         }
@@ -102,7 +100,7 @@ class Shrugman {
         return shrugEmoji.slice(0, shrugEmoji.length - this.attempts).join('');
     }
 
-    // Stats
+    // Status(win or loss)
     updateStats(gameResult) {
         this.stats.push({
             word: this.currentWord,
@@ -110,7 +108,7 @@ class Shrugman {
         });
     }
 
-    // Check game state (is the user winning or our out attempts)
+    // Check game status 
     isWinning() {
         return this.currentWord === this.showWord();
     }
